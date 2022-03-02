@@ -2,14 +2,14 @@ import config from 'lib/config'
 import NextHead from 'next/head'
 import { useRouter } from 'next/router'
 
-interface Props {
+interface IHeadProps {
   title?: string
   description?: string
   keywords?: string
   image?: string
 }
 
-const Head: React.FC<Props> = (props) => {
+const Head: React.FC<IHeadProps> = (props) => {
   const {
     title,
     description = '',
@@ -20,7 +20,7 @@ const Head: React.FC<Props> = (props) => {
   const pageTitle = title ? `${title} - ${config.appName}` : config.appName
 
   const router = useRouter()
-  const currentURL = router.asPath
+  const currentURL = `${config.appURL}/${router.asPath}`
 
   return (
     <NextHead>
