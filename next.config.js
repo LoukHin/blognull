@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  images: {
+    domains: ['fswd-wp.devnss.com'],
+  },
 }
 
 module.exports = nextConfig
