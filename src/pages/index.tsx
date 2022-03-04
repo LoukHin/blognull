@@ -4,6 +4,18 @@ import Head from 'components/head'
 import PostImage from 'components/image'
 import Link from 'next/link'
 
+interface IPost {
+  id: string
+  slug: string
+  featured_media: string
+  title: {
+    rendered: string
+  }
+  excerpt: {
+    rendered: string
+  }
+}
+
 const Index = () => {
   const { data, error } = useSWR('https://fswd-wp.devnss.com/wp-json/wp/v2/posts')
 
@@ -11,7 +23,7 @@ const Index = () => {
     <>
       <Head title='Home' />
       <div className='max-w-screen-md mx-auto py-3 flex flex-row flex-wrap'>
-        {data?.map((post) => (
+        {data?.map((post: IPost) => (
           <Link key={`${post.id}`} href={`${post.slug}`}>
             <a className='w-full mx-auto my-2'>
               <div className='rounded overflow-hidden ring-1 ring-gray-200 duration-150 hover:shadow'>
