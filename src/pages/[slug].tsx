@@ -25,7 +25,7 @@ const PostSlug = () => {
             <div className='w-full text-2xl font-medium'>{post.title.rendered}</div>
             <PostInfo postId={post.id} />
             <PostCategories postId={post.id} />
-            <div dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
+            <div className='wp-content' dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
             <hr className='w-full my-2 border-b border-gray-200' />
             {comments?.map((comment) => (
               <Comment key={comment.id} comment={comment} />

@@ -21,7 +21,7 @@ const Comment: React.FC<ICommentProps> = ({ comment }) => {
         <span className='ml-3'>{comment.author_name}</span>
       </div>
       <div className='flex'>
-        <div dangerouslySetInnerHTML={{ __html: comment.content.rendered }}></div>
+        <div className='wp-content' dangerouslySetInnerHTML={{ __html: comment.content.rendered }}></div>
       </div>
     </div>
   )
