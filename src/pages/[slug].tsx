@@ -1,13 +1,13 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import Head from 'components/head'
 import PostCategories from 'components/categories'
+import PostInfo from 'components/post-info'
+import Comment from 'components/comment'
+import CommentForm from 'components/comment-form'
 import { useWordpressApi } from 'lib/hooks'
 
 import type { IComment, IPost } from 'types/wordpress'
-import PostInfo from 'components/post-info'
-import Comment from 'components/comment'
 
 const PostSlug = () => {
   const router = useRouter()
@@ -26,6 +26,8 @@ const PostSlug = () => {
             <PostInfo postId={post.id} />
             <PostCategories postId={post.id} />
             <div className='wp-content' dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
+            <hr className='w-full my-2 border-b border-gray-200' />
+            <CommentForm postId={post.id} />
             <hr className='w-full my-2 border-b border-gray-200' />
             {comments?.map((comment) => (
               <Comment key={comment.id} comment={comment} />
