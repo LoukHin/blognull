@@ -15,8 +15,6 @@ const PostImage: React.FC<IPostImageProps> = ({ featuredMedia, alt }) => {
           <Image
             src={data.source_url}
             alt={alt}
-            width={data.media_details.width}
-            height={data.media_details.height}
             layout='fill'
             objectFit='cover'
             objectPosition='50% 50%'
