@@ -76,7 +76,7 @@ const CommentForm: React.FC<ICommentFormProps> = ({ postId, onComment }) => {
       </div>
       {error && <span className='mb-2 text-red-500'>{error}</span>}
       <button
-        className='rounded-md bg-black py-2 bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10 disabled:cursor-not-allowed'
+        className='rounded-md bg-black py-2 bg-opacity-10 hover:bg-opacity-20 disabled:bg-opacity-5 disabled:hover:bg-opacity-5 disabled:text-gray-400 disabled:cursor-not-allowed'
         onClick={commentButtonClickHandler}
         disabled={!!!comment || sending}
       >
