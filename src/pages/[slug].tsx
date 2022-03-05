@@ -9,17 +9,18 @@ import type { IPost } from 'types/wordpress'
 const PostSlug = () => {
   const router = useRouter()
   const { slug } = router.query
-  const { data } = useWordpressApi<IPost[]>(`posts?slug=${slug}`, [slug])
+  const { data: posts } = useWordpressApi<IPost[]>(`posts?slug=${slug}`, [slug])
+  const post = posts?.[0]
 
   return (
     <>
-      <Head title='Home' />
+      <Head title={post?.title.rendered} />
       <div className='max-w-screen-md mx-auto py-3 flex flex-row flex-wrap'>
-        {data?.[0] && (
+        {post && (
           <>
-            <div className='mb-2 text-2xl font-medium'>{data[0].title.rendered}</div>
-            <PostCategories postId={data[0].id} />
-            <div dangerouslySetInnerHTML={{ __html: data[0].content.rendered }}></div>
+            <div className='mb-2 text-2xl font-medium'>{post?.title.rendered}</div>
+            <PostCategories postId={post?.id} />
+            <div dangerouslySetInnerHTML={{ __html: post?.content.rendered }}></div>
           </>
         )}
       </div>
