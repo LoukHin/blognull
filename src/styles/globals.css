@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.more-link {
-  @apply text-blue-300 duration-150 hover:underline
-}
-
-.screen-reader-text {
+.more-link-wrapper {
   @apply hidden
 }
