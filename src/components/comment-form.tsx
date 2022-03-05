@@ -4,11 +4,13 @@ import { FormEventHandler, useState } from 'react'
 
 interface ICommentFormProps {
   postId: number
+  onComment: Function
 }
 
-const CommentForm: React.FC<ICommentFormProps> = ({ postId }) => {
+const CommentForm: React.FC<ICommentFormProps> = ({ postId, onComment }) => {
   const [comment, setComment] = useState('')
   const [name, setName] = useState('')
+  const [sending, setSending] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const nameInputHandler: FormEventHandler<HTMLInputElement> = (event) => {
@@ -24,6 +26,7 @@ const CommentForm: React.FC<ICommentFormProps> = ({ postId }) => {
   }
 
   const commentButtonClickHandler = async () => {
+    setSending(true)
     try {
       await ky.post('comments', {
         prefixUrl: config.cmsApiUrl,
@@ -37,6 +40,8 @@ const CommentForm: React.FC<ICommentFormProps> = ({ postId }) => {
         },
       })
       setComment('')
+      onComment()
+      setSending(false)
     } catch (error) {
       const { message } = await (error as HTTPError).response.json()
       setError(message)
@@ -73,7 +78,7 @@ const CommentForm: React.FC<ICommentFormProps> = ({ postId }) => {
       <button
         className='rounded-md bg-black py-2 bg-opacity-10 hover:bg-opacity-20 disabled:hover:bg-opacity-10 disabled:cursor-not-allowed'
         onClick={commentButtonClickHandler}
-        disabled={!!!comment}
+        disabled={!!!comment || sending}
       >
         Comment
       </button>
