@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
 import calendar from 'dayjs/plugin/calendar'
 
 import { useWordpressApi } from 'lib/hooks'
@@ -11,6 +13,8 @@ interface IPostInfoProps {
   className?: string
 }
 
+dayjs.extend(utc)
+dayjs.extend(timezone)
 dayjs.extend(calendar)
 
 const PostInfo: React.FC<IPostInfoProps> = ({ post, enableAuthorLink, className }) => {
@@ -31,7 +35,7 @@ const PostInfo: React.FC<IPostInfoProps> = ({ post, enableAuthorLink, className 
           ) : (
             <span className='ml-1'>{author.name}</span>
           )}
-          , updated on: {dayjs().calendar(post.modified)}
+          , updated on: {dayjs.utc(post.modified_gmt).tz().calendar(null, { sameElse: 'DD/MM/YYYY [at] h:mm A' })}
         </div>
       )}
     </>

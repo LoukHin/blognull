@@ -12,7 +12,7 @@ export interface IPost {
     rendered: string
   }
   author: number
-  modified: string
+  modified_gmt: string
 }
 
 export interface ICategory {
@@ -34,7 +34,7 @@ export interface IUser {
 export interface IComment {
   id: number
   author_name: string
-  date: string
+  date_gmt: string
   content: {
     rendered: string
   }
