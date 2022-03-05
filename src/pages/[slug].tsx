@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router'
-import useSWR from 'swr'
 
 import Head from 'components/head'
+import { useWordpressApi } from 'lib/hooks'
 
 const Index = () => {
   const router = useRouter()
   const { slug } = router.query
-  const { data, error } = useSWR(`posts?slug=${slug}`)
+  const { data, error } = useWordpressApi(`posts?slug=${slug}`)
 
   return (
     <>

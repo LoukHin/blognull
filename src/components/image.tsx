@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import useSWR from 'swr'
+
+import { useWordpressApi } from 'lib/hooks'
 
 interface IPostImageProps {
   featuredMedia: string
@@ -7,7 +8,7 @@ interface IPostImageProps {
 }
 
 const PostImage: React.FC<IPostImageProps> = ({ featuredMedia, alt }) => {
-  const { data, error } = useSWR(`media/${featuredMedia}`)
+  const { data, error } = useWordpressApi(`media/${featuredMedia}`)
   return (
     <>
       {data && !error && (

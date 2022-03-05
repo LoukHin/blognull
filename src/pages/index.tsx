@@ -1,8 +1,7 @@
-import useSWR from 'swr'
-
 import Head from 'components/head'
 import PostImage from 'components/image'
 import Link from 'next/link'
+import { useWordpressApi } from 'lib/hooks'
 
 interface IPost {
   id: string
@@ -17,7 +16,7 @@ interface IPost {
 }
 
 const Index = () => {
-  const { data, error } = useSWR('posts')
+  const { data, error } = useWordpressApi('posts')
 
   return (
     <>
