@@ -18,7 +18,7 @@ const PostCard: React.FC<IPostCardProps> = ({ post }) => {
           <div className='p-3'>
             <div className='mb-2 text-2xl font-medium'>{post.title.rendered}</div>
             <div className='wp-content' dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}></div>
-            <PostInfo postId={post.id} className='mt-2' />
+            <PostInfo post={post} className='mt-2' />
           </div>
         </div>
       </a>

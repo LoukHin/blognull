@@ -23,7 +23,7 @@ const PostSlug = () => {
         {post && (
           <>
             <div className='w-full text-2xl font-medium'>{post.title.rendered}</div>
-            <PostInfo postId={post.id} />
+            <PostInfo post={post} />
             <PostCategories postId={post.id} />
             <div className='wp-content' dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
             <hr className='w-full my-2 border-b border-gray-200' />
