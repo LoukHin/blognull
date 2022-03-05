@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { useWordpressApi } from 'lib/hooks'
 
 interface IPostImageProps {
-  featuredMedia: string
+  featuredMedia: number
   alt: string
 }
 

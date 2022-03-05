@@ -1,7 +1,7 @@
 export interface IPost {
-  id: string
+  id: number
   slug: string
-  featured_media: string
+  featured_media: number
   title: {
     rendered: string
   }
@@ -11,17 +11,18 @@ export interface IPost {
   content: {
     rendered: string
   }
+  author: number
 }
 
 export interface ICategory {
-  id: string
+  id: number
   slug: string
   name: string
   description: string
 }
 
 export interface IUser {
-  id: string
+  id: number
   slug: string
   name: string
   avatar_urls: {

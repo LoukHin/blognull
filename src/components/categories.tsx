@@ -4,7 +4,7 @@ import { useWordpressApi } from 'lib/hooks'
 import type { ICategory } from 'types/wordpress'
 
 interface IPostCategoriesProps {
-  postId: string
+  postId: number
 }
 
 const PostCategories: React.FC<IPostCategoriesProps> = ({ postId }) => {
