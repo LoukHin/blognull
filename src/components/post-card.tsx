@@ -1,6 +1,7 @@
 import Link from 'next/link'
 
 import PostImage from 'components/image'
+import PostInfo from 'components/post-info'
 
 import type { IPost } from 'types/wordpress'
 
@@ -17,6 +18,7 @@ const PostCard: React.FC<IPostCardProps> = ({ post }) => {
           <div className='p-3'>
             <div className='mb-2 text-2xl font-medium'>{post.title.rendered}</div>
             <div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }}></div>
+            <PostInfo postId={post.id} className='mt-2' />
           </div>
         </div>
       </a>
