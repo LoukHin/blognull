@@ -3,17 +3,7 @@ import PostImage from 'components/image'
 import Link from 'next/link'
 import { useWordpressApi } from 'lib/hooks'
 
-interface IPost {
-  id: string
-  slug: string
-  featured_media: string
-  title: {
-    rendered: string
-  }
-  excerpt: {
-    rendered: string
-  }
-}
+import type { IPost } from 'types/wordpress'
 
 const Index = () => {
   const { data, error } = useWordpressApi('posts')
