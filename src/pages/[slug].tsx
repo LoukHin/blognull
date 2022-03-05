@@ -46,7 +46,7 @@ const PostSlug = () => {
         {post && (
           <>
             <div className='w-full text-2xl font-medium'>{post.title.rendered}</div>
-            <PostInfo post={post} />
+            <PostInfo post={post} enableAuthorLink />
             <PostCategories postId={post.id} />
             <div
               className='wp-content'
