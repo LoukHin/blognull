@@ -13,14 +13,14 @@ const Head: React.FC<IHeadProps> = (props) => {
   const {
     title,
     description = '',
-    image = `${config.appURL}/static/default-share-image.png`,
+    image = `${config.appUrl}/static/default-share-image.png`,
     children,
   } = props
 
   const pageTitle = title ? `${title} - ${config.appName}` : config.appName
 
   const router = useRouter()
-  const currentURL = `${config.appURL}/${router.asPath}`
+  const currentURL = `${config.appUrl}/${router.asPath}`
 
   return (
     <NextHead>
