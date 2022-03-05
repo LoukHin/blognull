@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
 import Head from 'components/head'
-import PostTags from 'components/tags'
+import PostCategories from 'components/categories'
 import { useWordpressApi } from 'lib/hooks'
 
 import type { IPost } from 'types/wordpress'
@@ -18,7 +18,7 @@ const PostSlug = () => {
         {data?.[0] && (
           <>
             <div className='mb-2 text-2xl font-medium'>{data[0].title.rendered}</div>
-            <PostTags postId={data[0].id} />
+            <PostCategories postId={data[0].id} />
             <div dangerouslySetInnerHTML={{ __html: data[0].content.rendered }}></div>
           </>
         )}

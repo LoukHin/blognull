@@ -4,8 +4,8 @@ export const navMenuItems = [
     path: '/',
   },
   {
-    title: 'Tag',
-    path: '/tag',
+    title: 'Category',
+    path: '/category',
   },
   {
     title: 'Author',

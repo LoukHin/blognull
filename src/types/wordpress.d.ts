@@ -13,8 +13,9 @@ export interface IPost {
   }
 }
 
-export interface ITag {
+export interface ICategory {
   id: string
   slug: string
   name: string
+  description: string
 }
