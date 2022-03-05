@@ -5,14 +5,16 @@ import Head from 'components/head'
 import PostCategories from 'components/categories'
 import { useWordpressApi } from 'lib/hooks'
 
-import type { IPost } from 'types/wordpress'
+import type { IComment, IPost } from 'types/wordpress'
 import PostInfo from 'components/post-info'
+import Comment from 'components/comment'
 
 const PostSlug = () => {
   const router = useRouter()
   const { slug } = router.query
   const { data: posts } = useWordpressApi<IPost[]>(`posts?slug=${slug}`, [slug])
   const post = posts?.[0]
+  const { data: comments } = useWordpressApi<IComment[]>(`comments?post=${post?.id}`, [post?.id])
 
   return (
     <>
@@ -24,6 +26,10 @@ const PostSlug = () => {
             <PostInfo postId={post.id} />
             <PostCategories postId={post.id} />
             <div dangerouslySetInnerHTML={{ __html: post.content.rendered }}></div>
+            <hr className='w-full my-2 border-b border-gray-200' />
+            {comments?.map((comment) => (
+              <Comment key={comment.id} comment={comment} />
+            ))}
           </>
         )}
       </div>
