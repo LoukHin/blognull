@@ -6,7 +6,7 @@ import Head from 'components/head'
 const Index = () => {
   const router = useRouter()
   const { slug } = router.query
-  const { data, error } = useSWR(`https://fswd-wp.devnss.com/wp-json/wp/v2/posts?slug=${slug}`)
+  const { data, error } = useSWR(`posts?slug=${slug}`)
 
   return (
     <>

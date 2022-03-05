@@ -17,7 +17,7 @@ interface IPost {
 }
 
 const Index = () => {
-  const { data, error } = useSWR('https://fswd-wp.devnss.com/wp-json/wp/v2/posts')
+  const { data, error } = useSWR('posts')
 
   return (
     <>
@@ -26,7 +26,7 @@ const Index = () => {
         {data?.map((post: IPost) => (
           <Link key={`${post.id}`} href={`${post.slug}`}>
             <a className='w-full mx-auto my-2'>
-              <div className='rounded overflow-hidden ring-1 ring-gray-200 duration-150 hover:shadow'>
+              <div className='rounded overflow-hidden ring-1 ring-gray-200 duration-150 hover:shadow-lg hover:ring-gray-400'>
                 <PostImage featuredMedia={post.featured_media} alt={post.title.rendered} />
                 <div className='p-3'>
                   <div className='mb-2 text-2xl font-medium'>{post.title.rendered}</div>

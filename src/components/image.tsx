@@ -7,7 +7,7 @@ interface IPostImageProps {
 }
 
 const PostImage: React.FC<IPostImageProps> = ({ featuredMedia, alt }) => {
-  const { data, error } = useSWR(`https://fswd-wp.devnss.com/wp-json/wp/v2/media/${featuredMedia}`)
+  const { data, error } = useSWR(`media/${featuredMedia}`)
   return (
     <>
       {data && !error && (
