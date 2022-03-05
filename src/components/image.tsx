@@ -8,10 +8,10 @@ interface IPostImageProps {
 }
 
 const PostImage: React.FC<IPostImageProps> = ({ featuredMedia, alt }) => {
-  const { data, error } = useWordpressApi(`media/${featuredMedia}`)
+  const { data } = useWordpressApi(`media/${featuredMedia}`, [featuredMedia])
   return (
     <>
-      {data && !error && (
+      {data && (
         <div className='h-60 relative overflow-hidden'>
           <Image
             src={data.source_url}

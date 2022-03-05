@@ -3,19 +3,21 @@ import { useRouter } from 'next/router'
 import Head from 'components/head'
 import { useWordpressApi } from 'lib/hooks'
 
-const Index = () => {
+import type { IPost } from 'types/wordpress'
+
+const PostSlug = () => {
   const router = useRouter()
   const { slug } = router.query
-  const { data, error } = useWordpressApi(`posts?slug=${slug}`)
+  const { data } = useWordpressApi<IPost[]>(`posts?slug=${slug}`, [slug])
 
   return (
     <>
       <Head title='Home' />
       <div className='max-w-screen-md mx-auto py-3 flex flex-row flex-wrap'>
-        {data && !error && (
+        {data?.[0] && (
           <>
-            <div className='mb-2 text-2xl font-medium'>{data[0]?.title.rendered}</div>
-            <div dangerouslySetInnerHTML={{ __html: data[0]?.content.rendered }}></div>
+            <div className='mb-2 text-2xl font-medium'>{data[0].title.rendered}</div>
+            <div dangerouslySetInnerHTML={{ __html: data[0].content.rendered }}></div>
           </>
         )}
       </div>
@@ -23,4 +25,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default PostSlug
