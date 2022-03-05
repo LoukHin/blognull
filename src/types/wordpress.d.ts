@@ -19,3 +19,12 @@ export interface ICategory {
   name: string
   description: string
 }
+
+export interface IUser {
+  id: string
+  slug: string
+  name: string
+  avatar_urls: {
+    96: string
+  }
+}
