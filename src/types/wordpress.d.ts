@@ -12,6 +12,7 @@ export interface IPost {
     rendered: string
   }
   author: number
+  modified: string
 }
 
 export interface ICategory {
