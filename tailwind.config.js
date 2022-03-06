@@ -8,5 +8,5 @@ module.exports = {
       sans: ['Bai Jamjuree', ...defaultTheme.fontFamily.sans],
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 }

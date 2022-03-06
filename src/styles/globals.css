@@ -2,36 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.wp-content {
-  .more-link-wrapper {
-    @apply hidden;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-size: revert;
-  }
-
-  a:not([class]) {
-    @apply font-bold underline;
-  }
-
-  ul,
-  ol {
-    list-style: revert;
-    margin: revert;
-    padding: revert;
-  }
-
-  blockquote {
-    @apply border-l-2 border-l-gray-400 pl-6 my-4 italic;
-  }
-
-  img {
-    @apply mx-auto;
-  }
+.prose .more-link-wrapper {
+  @apply hidden;
 }

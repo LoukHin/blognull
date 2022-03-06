@@ -49,7 +49,7 @@ const PostSlug = () => {
             <PostInfo post={post} enableAuthorLink />
             <PostCategories postId={post.id} />
             <div
-              className='wp-content'
+              className='prose prose-img:mx-auto'
               dangerouslySetInnerHTML={{ __html: post.content.rendered }}
             ></div>
             <hr className='w-full my-2 border-b border-gray-200' />

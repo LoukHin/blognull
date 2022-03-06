@@ -37,7 +37,7 @@ const Comment: React.FC<ICommentProps> = ({ comment }) => {
       </div>
       <div className='flex'>
         <div
-          className='wp-content'
+          className='prose prose-img:mx-auto'
           dangerouslySetInnerHTML={{ __html: comment.content.rendered }}
         ></div>
       </div>
