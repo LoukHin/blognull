@@ -23,7 +23,7 @@ const PostSlug = () => {
 
   useEffect(() => {
     if (post) {
-      ky.get(`comments?post=${post?.id}`, {
+      ky.get(`comments?post=${post?.id}&per_page=100`, {
         prefixUrl: config.cmsApiUrl,
         headers: {
           authorization: config.cmsApiAuthorization,
