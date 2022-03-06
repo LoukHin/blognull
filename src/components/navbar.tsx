@@ -8,7 +8,7 @@ const NavBar: React.FC = () => {
 
   return (
     <div className='mb-14'>
-      <div className='w-full top-0 z-50 fixed bg-white border-b border-gray-200'>
+      <div className='w-full top-0 z-50 fixed bg-white backdrop-filter backdrop-blur-xl bg-opacity-75 border-b border-gray-200'>
         <div className='max-w-screen-lg h-14 flex flex-row items-center justify-between mx-auto p-2'>
           <h1 className='text-4xl'>
             <span className='font-extralight'>blog</span>null
