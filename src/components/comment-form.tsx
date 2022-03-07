@@ -45,6 +45,8 @@ const CommentForm: React.FC<ICommentFormProps> = ({ postId, onComment }) => {
     } catch (error) {
       const { message } = await (error as HTTPError).response.json()
       setError(message)
+    } finally {
+      setSending(false)
     }
   }
 
