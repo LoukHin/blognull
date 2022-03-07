@@ -5,7 +5,7 @@ import { useWordpressApi } from 'lib/hooks'
 import type { IPost } from 'types/wordpress'
 
 const Index = () => {
-  const { data: posts } = useWordpressApi<IPost[]>('posts')
+  const { data: posts } = useWordpressApi<IPost[]>('posts?per_page=100')
 
   return (
     <>
